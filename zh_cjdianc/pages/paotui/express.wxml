@@ -1,0 +1,23 @@
+<view class='container'>
+<view style='height:150px;text-algin:center;line-height:70px;color:grey;font-size:25px;'>
+  同城配送中心
+</view>
+  <view class='clearfix bar'>
+    <view class='place'>
+        <view  class='left commen' bindtap='placeOrder'>
+         <view > 
+         <text>我要</text>
+          </view> 
+          <text>下单</text>
+        </view>
+    </view>
+    <view class='clerk'>  
+        <view  class='right commen' bindtap='clerkOrder'>
+         <view > 
+         <text>我要</text>
+          </view> 
+          <text>接单</text>
+        </view>
+    </view>      
+  </view>
+</view>

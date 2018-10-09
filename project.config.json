@@ -1,0 +1,91 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx18702ae12ed1dd30",
+	"projectname": "%E5%95%86%E5%9F%8E",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 7,
+			"list": [
+				{
+					"id": -1,
+					"name": "跑腿页面",
+					"pathName": "zh_cjdianc/pages/paotui/guide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "下单页面",
+					"pathName": "zh_cjdianc/pages/paotui/clerk",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "跑腿订单",
+					"pathName": "zh_cjdianc/pages/paotui/clerk",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分销中心",
+					"pathName": "zh_cjdianc/pages/distribution/core",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "页面存在",
+					"pathName": "zh_cjdianc/pages/Liar/loginindex",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "zh_cjdianc/pages/wddd/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "跑腿同城订单",
+					"pathName": "zh_cjdianc/pages/wddd/ddxq",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "zh_cjdianc/pages/takeout/takeoutform"
+				}
+			]
+		}
+	}
+}

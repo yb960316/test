@@ -1,0 +1,50 @@
+.container{
+  text-align: center;
+  /* border: 1px solid red; */
+  width: 95%;
+  height: 87%;
+  background-color:white;
+  box-shadow: 0 10px 10px grey;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-image:url(http://test.yiyawlkj.com/attachment/images/7/2018/09/G5taR41Arn885S8x8Pp8ATx81ln1N4.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;  
+}
+.place{
+  /* border: 1px solid red; */
+  float: left;
+  /* width: 45px; */
+  width: 50%;
+  /* border-radius: 50%; */
+  
+
+}
+.clerk{
+  /* border: 1px solid red; */
+  float: right;
+  width: 50%;
+  /* border-radius: 50%; */
+  /* margin-right:50px; */
+}
+.clearfix:after{
+  display:block;display:block;clear:both;content:"";
+}
+.bar{ 
+  /* border:1px solid red; */
+}
+.commen{
+  text-align: center;
+  /* line-height: 60px; */
+  border-radius:50%;
+  /* padding: 5px; */
+  /* border:1px solid red;  */
+  /* border: none; */
+  width:60px;margin:0 auto;
+  height: 60px;
+  /* border: 1px solid red; */
+  /* background-color:white;  */
+  box-shadow: 0px 3px 5px grey;
+  color: rgba(11, 127, 156, 0.938);
+  line-height: 30px;
+}

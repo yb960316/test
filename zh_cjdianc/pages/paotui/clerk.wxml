@@ -1,0 +1,134 @@
+<view class='container '>
+<form bindsubmit="createTable">
+  <view style='padding:10px;font-size:25px;text-align:center;color:grey;'>填写订单</view>
+
+  <view class='box-shadows'>
+  <input class='delivery-aim aim'   disabled='true' value='{{mobileLocation.address}}' placeholder="请选择送货地址"></input>
+  <view class='choose' bindtap='movePresentLocation'>选择</view>
+  
+  </view>
+  <input class='aim-view'  placeholder='填写详细地址' name="address_view"></input>
+    <picker  mode="time"    class='box-shadows' value="{{starttime}}"  bindchange="startChange">
+        <view class="picker" style='width:100%;height:100%;line-height:35px;'>
+      接货时间： {{starttime}}
+        </view>
+    </picker>
+  <input class='box-shadows' placeholder='请填写取货联系人姓名' name="name"></input>
+  <input class='box-shadows' type='number' placeholder='请填写取货联系人联系方式' name="tel"></input>  
+  <view class='box-shadows'>
+    <input class='consignee-aim aim'  value='{{mobileTouchLocation.address}}' disabled='true' placeholder="请选择收货地址"></input>
+    <view class='choose' bindtap='moveTouchLocation'>选择</view>
+  </view>
+  <input class='aim-view' placeholder='填写详细地址' name="touch_address_view"></input>
+    <picker  mode="time"    class='box-shadows' value="{{endtime}}"  bindchange="endChange">
+        <view class="picker" style='width:100%;height:100%;line-height:35px;'>
+        送达时间： {{endtime}}
+        </view>
+    </picker>
+  <input class='box-shadows' placeholder='请填写收货联系人姓名' name="touch_name"></input>
+  <input class='box-shadows' type='number' placeholder='请填写收货联系人联系方式' name="touch_tel"></input>
+    <picker bindchange="goodsTypeChange" value="{{index1}}" range="{{goodslist}}"  class='box-shadows' range-key="goodstype" data-id="{{goodsid}}">
+        <view class="picker" style='width:100%;height:100%;line-height:35px;'>
+        {{goodslist[index1].goodstype}}
+        </view>
+    </picker>
+   <picker bindchange="selectCar" value="{{index}}" range="{{carlist}}"  class='box-shadows' range-key="carname" data-id="{{carid}}" data-view="{{carrule}}">
+        <view class="picker" style='width:100%;height:100%;line-height:35px;'>
+          {{carlist[index].carname}}
+        </view>
+    </picker>
+  <view class='goods-img'>货物图片</view>
+  <view class='goods-upload clearfix'  >
+    <image src='https://cdn-img.easyicon.net/png/11638/1163827.gif' class='imgs'  bindtap='uploadImg'></image>
+    <block wx:for="{{imgs}}" wx:for-index="key" wx:for-item="value">
+    <image src='{{value}}' class='imgs' bindtap='imgStatus' id='{{key}}'></image>
+    </block>       
+  </view>
+  <textarea placeholder='货物描述' class='msg-textarea' style='backgroud-color:white;' name="goods_view"></textarea>
+  <input class='box-shadows' type='number' name='weight' placeholder='请输入货物重量，默认为0(kg)' style='text-align:center;' bindinput='calWeight'></input>
+  <view class='box-shadows distance' >里程：  {{distances}}  公里（km）</view>
+  <view class='box-shadows distance' >预计耗时：  {{times}}</view>
+   <!-- <picker bindchange="selectRed" value="{{index2}}" range="{{redbacklist}}"  class='box-shadows' range-key="redbackmoney">
+        <view class="picker" style='width:100%;height:100%;line-height:35px;'>
+         使用红包金额 {{redbacklist[index2].redbackmoney}} 元
+        </view>
+    </picker> -->
+  <view class='box-shadows' style='line-height:35px;'>
+    运费总计： {{fee}} 元
+  </view>
+  <view class='user-explain'>
+    <view>使用须知</view>
+    <view class='explain'>
+   
+    <text wx:if="{{carrule==''}}">1.基础里程10km，基础运费10元\n
+    1.基础里程10km，基础运费10元\n
+    1.基础里程10km，基础运费10元\n
+    1.基础里程10km，基础运费10元\n
+    1.基础里程10km，基础运费10元\n
+    </text >
+    <text wx:else>
+    起步价：{{carrule.price}}元
+    起步里程：{{carrule.distance}}千米
+    每{{carrule.distance2}}千米{{carrule.distance_price}}元
+    每{{carrule.weight}}千克{{carrule.weight_price}}元
+    返还4%的优惠券红包，仅能在跑腿和同城订单中使用
+    </text>
+
+    </view>
+  </view>
+  <view style='height:10px;'></view>
+  <button type='primary' formType="submit">提交订单</button>
+  <view style='height:10px;'></view>
+</form>
+  <view class="modalzz" hidden="{{mdoaltoggle}}"></view>
+    <view class="modal {{mdoaltoggle?'':'active'}}">
+        <view class="modalbd">
+            <icon size="50" type="success"></icon>
+            <view class="xdcg">下单成功!</view>
+        </view>
+    </view>
+<form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+<view  class='drawer_screen' wx:if="{{showModel}}" bindtap='clearScreen'></view>
+<view class='drawer_box'  wx:if="{{showModel}}">
+             <view class="drawer_title">请选择支付方式</view>
+            <view class="weui-cells weui-cells_after-title">
+                <radio-group bindchange="radioChange1" class="radio-group" name="radiogroup">
+                    <label>
+                        <view class="weui-cell">
+                            <view class="zfimg">
+                                <image src="../../img/weixin.png"></image>
+                            </view>
+                            <view class="weui-cell__bd">微信支付</view>
+                            <view class="weui-cell__ft">
+                                <radio checked="{{zffs==1}}" value="wxzf"></radio>
+                            </view>
+                        </view>
+                    </label>
+                    <label>
+                        <view class="weui-cell" style="border-top:1rpx solid #e6e6e6;">
+                            <view class="zfimg">
+                                <image src="../../img/yeqb.png"></image>
+                            </view>
+                            <view class="weui-cell__bd">余额支付
+                <text class="yetext">您的余额 {{userInfo.wallet}}</text>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <radio checked="{{zffs==2}}" color="#FF9700"  value="yezf"></radio>
+                            </view>
+                        </view>
+                    </label>
+                </radio-group>
+            </view>
+            <button class="{{btntype}}" disabled="{{zfz}}" formType="submit">
+                <view>确定支付
+          <text class="zftext">￥{{fee}}</text>
+                </view>
+                <view wx:if="{{zfz}}">
+                    <text class="zfztext">支付中...</text>
+                </view>
+            </button>
+        
+</view>
+</form>      
+</view>
+

@@ -1,0 +1,6 @@
+@import "../__wuBaseWxss__/4.wxss";
+
+.ddxh {
+    font-size: 38rpx;
+    margin-right: 20rpx;
+}

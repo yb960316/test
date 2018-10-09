@@ -1,0 +1,10 @@
+<view class="navbar flex-row" style="background-image: url({{_navbar.background_image}});border:1rpx solid {{_navbar.border_color}}" wx:if="{{_navbar&&_navbar.navs&&_navbar.navs.length>0}}">
+    <navigator class="flex-grow-1 flex-y-center" openType="redirect" url="{{item.url}}" wx:for="{{_navbar.navs}}">
+        <view>
+            <image class="navbar-icon" src="{{item.active?item.logo:item.logo2}}"></image>
+            <view class="navbar-text" style="color: {{item.active?item.title_color:item.title_color2}};">{{item.title}} 
+
+          </view>
+        </view>
+    </navigator>
+</view>
